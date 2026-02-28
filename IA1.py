@@ -1,12 +1,15 @@
 import streamlit as st
 from google import genai
 import os
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
 
 st.set_page_config(page_title="IA", page_icon="🤖")
 st.title("IA xupetetinha")
 
 # Configuracao da API
-CHAVE_API = "AIzaSyD9WOlNxRsZxNxJq3qQDRTGjYJFVhwFa1c"
+CHAVE_API = os.getenv("CHAVE_API")
 
 # Inicializa o cliente e o chat na sessao (session_state)
 if "client" not in st.session_state:
